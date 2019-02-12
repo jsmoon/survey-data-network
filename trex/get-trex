@@ -1,0 +1,7 @@
+#!/bin/bash
+
+TREX_PKG=${1:-latest}${1:+.tar.gz}
+wget https://trex-tgn.cisco.com/trex/release/${TREX_PKG} || exit $?
+set -x
+tar xzf ${TREX_PKG}
+[ "$TREX_PKG" == "latest" ] && rm ${TREX_PKG}

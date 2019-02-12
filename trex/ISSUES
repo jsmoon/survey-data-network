@@ -1,0 +1,4 @@
+1. (In my memory, from previous survey)
+In the VirtualBox VM, TRex offloads vlan header, so arp could not resolved mac address when vlan used. (v2.45)
+
+2.

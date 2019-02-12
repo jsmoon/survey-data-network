@@ -1,0 +1,44 @@
+# Survey Data Network Knowledge using by VirtualBox VM
+
+## Setup Base Snapshot
+osboxes/osboxes.org
+sudo apt-get upgrade && sudo apt-get update
+sudo apt-get install openssh-server
+
+For following purpose:
+- Survey DPDK
+- Survey TRex
+- Survey OVS-DPDK
+- Survey DevStack
+
+## Survey DPDK Snapshot
+CPU: 4
+Network Adapter to Internal Network: 2
+useradd dpdk
+sudo apt-get install dpdk
+
+dpdk/README.simple-startup-with-testpmd
+
+### Snapshot #1
+
+## Survey TRex Snapshot
+CPU: 4
+Network Adaptor to Internal Network: 2
+useradd trex
+
+build-essential installed
+TRex installed
+/etc/trex_cfg.yaml configured
+
+### Snapshot #1
+Current State (changed):
+.bashrc .bash_profile : git prompt added to PS1
+
+README, ISSUES : short notes for what I have done.
+src/ : source files to build inside the machine
+trex/ : trex releases
+
+docker.io installed.
+
+### Snapshot #2
+

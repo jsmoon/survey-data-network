@@ -1,0 +1,20 @@
+# TRex source
+mkdir -p src
+git clone https://github.com/cisco-system-traffic-generator/trex-core src/trex-core
+
+# TRex binary relase
+mkdir -p trex
+(cd trex && wget https://trex-tgn.cisco.com/trex/release/v2.46.tar.gz)
+## /etc/trex_cfg.yaml, topology: enp0s8 <-> enp0s9, monitoring: enp0s10
+
+## ./run_regression --python3 if you don't have python2
+(cd trex/v2.46 && ./run_regression --python3 --func)
+## to get succeeded valgrind should be installed.
+sudo apt install valgrind -y
+
+# TRex binary docker
+sudo apt-get install docker.io -y
+sudo docker pull trexcisco/trex
+sudo run --rm -it --privileged --cap-add=ALL trexcisco/trex
+sudo docker ps
+sudo docker exec -it <CONTAINER_ID> bash
