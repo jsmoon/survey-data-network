@@ -4,6 +4,9 @@
 osboxes/osboxes.org
 sudo apt-get upgrade && sudo apt-get update
 sudo apt-get install openssh-server
+sudo apt-get install build-essential dkms
+### install VirtualBox Guest Addition
+https://askubuntu.com/questions/22743/how-do-i-install-guest-additions-in-a-virtualbox-vm
 
 For following purpose:
 - Survey DPDK
