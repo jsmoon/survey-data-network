@@ -4,7 +4,7 @@ git clone https://github.com/cisco-system-traffic-generator/trex-core src/trex-c
 
 # TRex binary relase
 mkdir -p trex
-(cd trex && wget https://trex-tgn.cisco.com/trex/release/v2.46.tar.gz)
+(cd trex && wget https://trex-tgn.cisco.com/trex/release/v2.56.tar.gz)
 ## /etc/trex_cfg.yaml, topology: enp0s8 <-> enp0s9, monitoring: enp0s10
 
 ## ./run_regression --python3 if you don't have python2
