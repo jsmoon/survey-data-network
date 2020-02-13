@@ -2,10 +2,29 @@
 
 : ${DPDK_VERSION:=dpdk}
 
-cmd=${1:-dpdk}
+PROG=$(basename $0)
+USAGE="$PROG - build dpdk and examples after setup-src.sh
+
+[DPDK_VERSION=dpdk[-stable]] $PROG <sub-commands> [<options>]
+
+sub-commands:
+help		display this message
+list		list all DPDK examples
+
+dpdk		build DPDK library
+dpdk-debug	build DPDK library with debug messages
+examples	build all DPDK examples
+<exmaple>	build specified one of examples
+"
+
+cmd=${1:-help}
 shift
+if [ "${cmd}" == "help" ]; then
+    echo "$USAGE"
+    exit 0
+fi
 if [ "${cmd}" == "list" ]; then
-    (cd $HOME/src/${DPDK_VERSION}/examples; ls)
+    (cd $HOME/src/${DPDK_VERSION}/examples && ls -d */)
     exit 0
 fi
 
@@ -13,8 +32,6 @@ set -x
 
 cd $HOME/src/${DPDK_VERSION} &&
 case "${cmd}" in
-list)
-    set +x && [ -d examples ] && cd examples && ls;;
 dpdk)
     make $@;;
 dpdk-debug)

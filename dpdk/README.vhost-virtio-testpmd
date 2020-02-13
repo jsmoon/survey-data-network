@@ -1,0 +1,13 @@
+# testpmd 'DPDK 17.11.6' from apt-get install dpdk didn't work.
+# testpmd 'DPDK 20.02.0-rc2' built from git works
+
+# vhost_user
+sudo ./testpmd --log-level 9 -n 4 --vdev 'net_vhost0,iface=/tmp/sock0,client=0,queues=1' --vdev 'net_vhost1,iface=/tmp/sock1,client=0,queues=1' --no-huge --no-pci --file-prefix vhost_user -- -i --nb-cores=2 --total-num-mbufs=2048
+
+# virtio_user
+sudo ./testpmd --log-level 9 -n 2 --vdev 'virtio_user0,path=/tmp/sock0' --vdev 'virtio_user1,path=/tmp/sock1' --socket-mem=16 --no-pci --file-prefix virtio_user -- -i --nb-cores=2 --total-num-mbufs=2048
+## --no-huge didn't work --> --socket-mem
+# update_memory_region(): Failed to get fd, ms=0x100033000 rte_errno=95
+## --socket-mem=64 didn't work --> 16
+# update_memory_region(): Too many memory regions
+
