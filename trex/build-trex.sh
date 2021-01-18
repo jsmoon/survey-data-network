@@ -9,4 +9,6 @@ set -x
 # build bp-sim
 (cd linux && ./b configure && ./b build) &&
 # build _t-rex
-(cd linux_dpdk && ./b configure && ./b build)
+(cd linux_dpdk &&
+    ./b configure --no-mlx=all --no-old &&
+    ./b build)
